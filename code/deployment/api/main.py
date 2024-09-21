@@ -18,7 +18,6 @@ def predict(file, predicting_model):
     arr = np.fromstring(file, 'uint8')
     im = cv2.imdecode(arr, cv2.COLOR_BGR2RGB)
 
-    # im = cv2.imread(filename)
     im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
     res = cv2.resize(im, dsize=(178, 218), interpolation=cv2.INTER_CUBIC)
 
@@ -49,5 +48,3 @@ def upload(filename: str = Form(...), file: UploadFile = File(...)):
     finally:
         file.file.close()
     return {"message": f"{res}"}
-
-

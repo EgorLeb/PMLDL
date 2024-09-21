@@ -17,9 +17,8 @@ with cols[1] as col:
         s = uploaded_file.name.split(".")
         if len(s) >= 2 and s[-1] in ["jpeg", "png", "jpg"]:
             bytes_data = uploaded_file.getvalue()
-            url = 'http://127.0.0.1:8000/upload'
+            url = 'http://fastapi:8000/upload'
             file = {'file': bytes_data}
-            # resp = requests.post(url=url, json={"file": file, "filename": uploaded_file.name})
             resp = requests.post(url=url, files=file, data={"filename": uploaded_file.name})
             st.title(" ")
             st.title(resp.json()["message"])

@@ -1,0 +1,10 @@
+services:
+  fastapi:
+    build: ./api
+    ports:
+      - 8000:8000
+
+  app:
+    build: ./app
+    ports:
+      - 8502:8501
